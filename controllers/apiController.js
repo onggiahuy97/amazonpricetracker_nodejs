@@ -1,6 +1,6 @@
 const amazonScraper = require('../scraper/amazonScraper');
 
-async function sayHello(req, res) {
+function sayHello(req, res) {
     res.send('Hello World!');
 }
 
