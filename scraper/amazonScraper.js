@@ -2,6 +2,13 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const url = require('url');
 
+const Bottleneck = require('bottleneck');
+
+const limiter = new Bottleneck({
+  maxConcurrent: 1, // Number of concurrent requests
+  minTime: 1000,   // Minimum time (in milliseconds) between requests
+});
+
 async function scrapeItem(productUrl) {
   try {
     // Parse the product URL to extract the product ID
@@ -9,7 +16,8 @@ async function scrapeItem(productUrl) {
     const productID = parsedUrl.pathname.split('/dp/')[1];
 
     // Fetch the HTML content of the Amazon product page
-    const response = await axios.get(productUrl);
+    // const response = await axios.get(productUrl);
+    const response = await limiter.schedule(() => axios.get(productUrl));
 
     // Load the HTML content into Cheerio for parsing
     const $ = cheerio.load(response.data);
