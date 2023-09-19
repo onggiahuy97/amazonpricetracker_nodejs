@@ -14,7 +14,7 @@ async function getItemById(req, res) {
     try {
         const id = req.params.id;
         const url = `https://www.amazon.com/dp/${id}`;
-        const item = await amazonScraper.scrapeItem(url);
+        const item = await amazonScraper.parseAmazonProductPage(url);
         res.json(item);
     } catch (error) {
         res.status(500).json({ error: error.message });
