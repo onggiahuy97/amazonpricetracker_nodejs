@@ -1,9 +1,5 @@
 const amazonScraper = require('../scraper/amazonScraper');
 
-function sayHello(req, res) {
-    res.send('Hello World!');
-}
-
 async function getItem(req, res) {
     try {
         const url = req.query.url;
@@ -26,5 +22,5 @@ async function getItemById(req, res) {
 }
 
 module.exports = {
-    getItem, getItemById, sayHello
+    getItem, getItemById
 }
