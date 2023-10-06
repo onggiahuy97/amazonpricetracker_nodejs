@@ -18,8 +18,6 @@ This repository contains a Node.js application that tracks product prices on Ama
 2. Install dependencies using `npm install`.
 3. Run the application using `node app.js`.
 
-# Amazon Price Tracker Application
-
 To build and run the application using Docker, follow these steps:
 
 1. Build the Docker image for the application:
