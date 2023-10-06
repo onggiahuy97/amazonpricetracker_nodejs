@@ -18,13 +18,20 @@ This repository contains a Node.js application that tracks product prices on Ama
 2. Install dependencies using `npm install`.
 3. Run the application using `node app.js`.
 
-## Docker Support
+# Amazon Price Tracker Application
 
-The repository also contains a Dockerfile to containerize the application. [View Dockerfile](https://github.com/onggiahuy97/amazonpricetracker_nodejs/blob/main/Dockerfile)
+To build and run the application using Docker, follow these steps:
 
----
+1. Build the Docker image for the application:
 
-To build and run the application using Docker:
+    ```shell
+    docker build -t amazonpricetracker .
+    ```
 
-`docker build -t amazonpricetracker .`
-`docker run -p 3000:3000 amazonpricetracker`
+2. Run the Docker container, exposing port 3000:
+
+    ```shell
+    docker run -p 3000:3000 amazonpricetracker
+    ```
+
+The application will now be running and accessible at [http://localhost:3000](http://localhost:3000).
